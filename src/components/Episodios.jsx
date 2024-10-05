@@ -23,6 +23,7 @@ export default function Episodios({ characters }) {
             .then(data => setEpisodes(data.results))
     }, [page])
 
+
     const foundCharacter = () => {
         const characterFound = characters.filter((item) => item.id === parseInt(idParams))
         setPersonaje(characterFound)

@@ -3,16 +3,16 @@ import { FaRegEye } from "react-icons/fa";
 import { useFetch } from '../hooks/useFetch';
 import { IoIosSearch } from "react-icons/io";
 import { Link } from 'react-router-dom';
+import Pagination from './Pagination';
 
 
-export default function Personajes({ characters = [], numberPage, setNumberPage }) {
+export default function Personajes({ characters = [], numberPage, setNumberPage, search, searchChar }) {
 
 
 
-
-    // useEffect(() => {
-    //     search();
-    // }, [searchChar])
+    useEffect(() => {
+        search();
+    }, [searchChar])
 
 
 
@@ -23,11 +23,11 @@ export default function Personajes({ characters = [], numberPage, setNumberPage 
             <table className='w-[80%] m-auto'>
                 <thead>
                     <tr>
-                        <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>Nombre</th>
-                        <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>Estado</th>
-                        <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider'>Especie</th>
-                        <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>Ver episodios</th>
-                        <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider'>ver info</th>
+                        <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-bold text-gray-700 uppercase tracking-wider'>Nombre</th>
+                        <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-dol text-gray-700 uppercase tracking-wider'>Estado</th>
+                        <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-bold text-gray-700 uppercase tracking-wider'>Especie</th>
+                        <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-bold text-gray-700 uppercase tracking-wider'>Ver episodios</th>
+                        <th className='px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-bold text-gray-700 uppercase tracking-wider'>ver info</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,8 +46,20 @@ export default function Personajes({ characters = [], numberPage, setNumberPage 
                                         <p className={`text-center ${item.status == "Alive" ? "bg-green-200 py-1 w-[50%] rounded-full" : item.status == "Dead" ? "bg-red-200 py-1 w-[50%] rounded-full" : item.status == "unknown" ? "bg-slate-300 py-1 w-[80%] rounded-full" : null}`}>{item.status}</p>
                                     </th>
                                     <th className='px-5 py-5 border-b border-gray-200 bg-white text-sm text-left'>{item.species}</th>
-                                    <th className='px-5 py-5 border-b border-gray-200 bg-white text-sm items-center'><Link to={`/episodes/${item.id}`}><button><FaRegEye /></button></Link></th>
-                                    <th className='px-5 py-5 border-b border-gray-200 bg-white text-sm items-center'><Link to={`/detail/${item.id}`}><button><FaRegEye /></button></Link></th>
+                                    <th className='px-5 py-5 border-b border-gray-200 bg-white text-sm items-center'>
+                                        <Link to={`/episodes/${item.id}`}>
+                                            <button >
+                                                <FaRegEye size={17} onMouseOver={({ target }) => target.style.color = "#25a18e"} onMouseOut={({ target }) => target.style.color = "black"} />
+                                            </button>
+                                        </Link>
+                                    </th>
+                                    <th className='px-5 py-5 border-b border-gray-200 bg-white text-sm items-center'>
+                                        <Link to={`/detail/${item.id}`}>
+                                            <button >
+                                                <FaRegEye size={17} onMouseOver={({ target }) => target.style.color = "#00a5cf"} onMouseOut={({ target }) => target.style.color = "black"} />
+                                            </button>
+                                        </Link>
+                                    </th>
                                 </tr>
                             )
                         })
@@ -55,7 +67,7 @@ export default function Personajes({ characters = [], numberPage, setNumberPage 
                 </tbody>
                 <tfoot></tfoot>
             </table>
-            {/* <Pagination numberPage={numberPage} setNumberPage={setNumberPage} /> */}
+            <Pagination numberPage={numberPage} setNumberPage={setNumberPage} />
         </div >
     )
 }
