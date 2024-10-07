@@ -9,14 +9,6 @@ import Pagination from './Pagination';
 export default function Personajes({ characters = [], numberPage, setNumberPage, search, searchChar }) {
 
 
-
-    useEffect(() => {
-        search();
-    }, [searchChar])
-
-
-
-
     return (
         <div>
 

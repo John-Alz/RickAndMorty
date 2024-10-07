@@ -14,13 +14,18 @@ export default function Episodios({ characters }) {
     const [page, setPage] = useState(1);
 
 
+
     const params = useParams();
     let idParams = params.id;
 
     useEffect(() => {
         fetch(`https://rickandmortyapi.com/api/episode?page=${page}`)
             .then(res => res.json())
-            .then(data => setEpisodes(data.results))
+            .then(data => {
+                setEpisodes(data.results)
+                console.log(episodes);
+
+            })
     }, [page])
 
 
@@ -33,7 +38,7 @@ export default function Episodios({ characters }) {
     const foundEpisode = () => {
         const espisodeFound = episodes.filter((item) => item.characters.find((item) => item === `https://rickandmortyapi.com/api/character/${idParams}`))
         setEpisode(espisodeFound)
-        // console.log(episode);
+        console.log(episode);
     }
 
     useEffect(() => {

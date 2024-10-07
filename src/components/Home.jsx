@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import Navbar from './Navbar'
 import Personajes from './Personajes'
 
-export default function Home({ characters, setCharacters, numberPage, setNumberPage, searchChar, handleChange, search }) {
+export default function Home({ characters, setSearchChar, numberPage, setNumberPage }) {
 
 
     return (
         <div>
-            <Navbar searchChar={searchChar} handleChange={handleChange} />
-            <Personajes searchChar={searchChar} characters={characters} numberPage={numberPage} setNumberPage={setNumberPage} search={search} />
+            <Navbar setSearchChar={setSearchChar} />
+            <Personajes characters={characters} numberPage={numberPage} setNumberPage={setNumberPage} />
         </div>
     )
 }
