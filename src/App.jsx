@@ -20,7 +20,7 @@ function App() {
 
 
   return (
-    <>
+    <div >
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home characters={characters} setSearchChar={setSearchChar} numberPage={page} setNumberPage={setPage} />} />
@@ -28,7 +28,7 @@ function App() {
           <Route path='/detail/:id' element={<Detail characters={characters} />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   )
 }
 

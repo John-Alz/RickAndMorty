@@ -6,7 +6,7 @@ export default function Home({ characters, setSearchChar, numberPage, setNumberP
 
 
     return (
-        <div>
+        <div className=' w-full pt-12 pb-12'>
             <Navbar setSearchChar={setSearchChar} />
             <Personajes characters={characters} numberPage={numberPage} setNumberPage={setNumberPage} />
         </div>

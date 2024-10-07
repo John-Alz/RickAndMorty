@@ -14,7 +14,7 @@ export default function Navbar({ setSearchChar }) {
 
     return (
         <div className='mb-8'>
-            <nav className='w-[80%] m-auto flex justify-between items-center'>
+            <nav className='w-[90%] gap-5 md:w-[80%] m-auto flex justify-between items-center'>
                 <div className='text-3xl font-bold'>
                     <Link to={"/"}>
                         <img className='w-[200px]' src={imgLogo} />

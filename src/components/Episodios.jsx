@@ -22,6 +22,10 @@ export default function Episodios({ characters }) {
         fetch(`https://rickandmortyapi.com/api/episode?page=${page}`)
             .then(res => res.json())
             .then(data => {
+                if (data.results.length == 0) {
+                    setPage(2)
+                } else {
+                }
                 setEpisodes(data.results)
                 console.log(episodes);
 
