@@ -14,7 +14,6 @@ export default function Episodios({ characters }) {
     const [page, setPage] = useState(1);
 
 
-
     const params = useParams();
     let idParams = params.id;
 
@@ -25,6 +24,7 @@ export default function Episodios({ characters }) {
                 if (data.results.length == 0) {
                     setPage(2)
                 } else {
+
                 }
                 setEpisodes(data.results)
                 console.log(episodes);
@@ -52,7 +52,7 @@ export default function Episodios({ characters }) {
 
 
     return (
-        <div>
+        <div className='pt-12'>
             <div className='w-[80%] m-auto pb-8 flex justify-between items-center'>
                 <Link to={"/"} ><button className='flex items-center font-semibold'><IoIosArrowBack /> Home
                 </button></Link>

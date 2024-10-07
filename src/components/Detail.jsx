@@ -25,7 +25,7 @@ export default function Detail({ characters }) {
 
 
     return (
-        <div>
+        <div className='pt-12'>
             <div className='w-[80%] m-auto pb-8 flex justify-between items-center'>
                 <Link to={"/"} ><button className='flex items-center font-semibold'><IoIosArrowBack /> Home
                 </button></Link>

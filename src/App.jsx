@@ -17,8 +17,6 @@ function App() {
   const { characters, setCharacters } = useFetch(`https://rickandmortyapi.com/api/character/?page=${page}&name=${searchChar}`, page, searchChar)
 
 
-
-
   return (
     <div >
       <BrowserRouter>
